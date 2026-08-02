@@ -286,20 +286,6 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 .stat-label { font-size: var(--text-sm); color: var(--color-text-muted); margin-top: var(--space-1); }
 @media (max-width: 720px) { .stat-row { grid-template-columns: 1fr; } }
 
-/* ===================== FEATURE CARDS ===================== */
-.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-8); }
-.feature-card {
-  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
-  padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-4);
-}
-.feature-icon {
-  width: 2.75rem; height: 2.75rem; border-radius: var(--radius-md);
-  background: var(--color-primary-highlight); color: var(--color-primary);
-  display: flex; align-items: center; justify-content: center;
-}
-.feature-card h3 { font-size: var(--text-lg); font-weight: 700; color: var(--color-text); }
-.feature-card p { font-size: var(--text-sm); color: var(--color-text-muted); }
-@media (max-width: 900px) { .feature-grid { grid-template-columns: 1fr; } }
 
 /* ===================== COURSE SECTIONS ===================== */
 .course-section { border-top: 1px solid var(--color-divider); }
@@ -470,32 +456,6 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
         <div class="stat-card"><div class="stat-num">$60</div><div class="stat-label">suggested donation</div></div>
       </div>
       <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-top: var(--space-3);">Signup is free for every course &mdash; $60 is a suggested per-person donation, not a required fee.</p>
-
-      <h3 style="font-size: var(--text-lg); font-weight:700; margin-top: var(--space-16); margin-bottom: var(--space-2);">Built for accessibility and easy transfer</h3>
-
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg>
-          </div>
-          <h3>Keyboard-friendly</h3>
-          <p>Skip link, visible focus states, touch-sized buttons, semantic headings, and anchor navigation make the mockup usable without a mouse.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          </div>
-          <h3>Squarespace-ready</h3>
-          <p>Each course section is structured like a self-contained landing page, so the copy blocks, cards, and CTA rows can be pasted into Squarespace sections with minimal rewriting.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </div>
-          <h3>Future-proof signup flow</h3>
-          <p>Application buttons currently point to placeholder anchors, which makes it simple to swap in an Airtable form URL and Squarespace checkout link later.</p>
-        </div>
-      </div>
     </div>
   </section>
 
