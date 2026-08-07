@@ -356,6 +356,44 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 .course-2 .course-side .a11y-list li::before { color: var(--color-slate); }
 .course-3 .course-side .a11y-list li::before { color: var(--color-teal); }
 
+/* Module carousel */
+.module-carousel { margin-top: var(--space-12); }
+.module-carousel-head { max-width: 62ch; margin-bottom: var(--space-6); }
+.module-carousel-head .eyebrow { color: var(--color-teal); font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+.module-carousel-head h3 { font-size: var(--text-lg); font-weight: 700; color: var(--color-text); margin-top: var(--space-2); }
+.module-carousel-sub { font-size: var(--text-sm); color: var(--color-text-muted); margin-top: var(--space-2); }
+
+.carousel-viewport {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--color-border); box-shadow: var(--shadow-md); background: #0a1018;
+}
+.carousel-track { display: flex; touch-action: pan-y; will-change: transform; transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1); }
+.carousel-track.is-dragging { transition: none !important; }
+.carousel-slide { flex: 0 0 100%; min-width: 0; }
+.carousel-slide img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 2.75rem; height: 2.75rem; border-radius: var(--radius-full);
+  background: rgba(247, 246, 242, 0.92);
+  color: #10161d; border: 1px solid rgba(255,255,255,0.15); box-shadow: var(--shadow-sm);
+  display: flex; align-items: center; justify-content: center;
+}
+.carousel-btn:hover { background: #f7f6f2; transform: translateY(-50%) scale(1.05); }
+.carousel-btn svg { width: 1.25rem; height: 1.25rem; }
+.carousel-prev { left: var(--space-3); }
+.carousel-next { right: var(--space-3); }
+@media (max-width: 640px) { .carousel-btn { width: 2.25rem; height: 2.25rem; } }
+
+.carousel-meta { display: flex; align-items: center; justify-content: center; gap: var(--space-4); margin-top: var(--space-4); }
+.carousel-dots { display: flex; align-items: center; gap: var(--space-2); }
+.carousel-dot {
+  width: 0.55rem; height: 0.55rem; border-radius: var(--radius-full); background: var(--color-border);
+  padding: 0; transition: background var(--transition-interactive), width var(--transition-interactive);
+}
+.carousel-dot[aria-selected="true"] { background: var(--color-teal); width: 1.5rem; }
+.carousel-counter { font-size: var(--text-sm); color: var(--color-text-muted); font-weight: 600; font-variant-numeric: tabular-nums; }
+
 /* ===================== APPLICATION FLOW ===================== */
 .flow-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); margin-top: var(--space-10); }
 .flow-step { position: relative; padding-top: var(--space-10); }
@@ -635,6 +673,49 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
           </div>
         </aside>
       </div>
+
+      <div class="module-carousel" data-carousel>
+        <div class="module-carousel-head">
+          <p class="eyebrow" lang="en">Preview</p>
+          <h3>Lo que verás en cada módulo</h3>
+          <p class="module-carousel-sub">Seis módulos de 2 horas cada uno, con un diagrama del flujo de trabajo de esa sesión.</p>
+        </div>
+
+        <div class="carousel-viewport">
+          <div class="carousel-track" data-track>
+            <figure class="carousel-slide" data-slide>
+              <img src="assets/modulo-slides/modulo-01.jpg" alt="Módulo 1: Bienvenida y fundamentos de datos. Flujo del módulo: Bienvenida, Auditoría de datos, Alta en Action Network, Compromiso semanal." width="1600" height="900" loading="eager" decoding="async" />
+            </figure>
+            <figure class="carousel-slide" data-slide>
+              <img src="assets/modulo-slides/modulo-02.jpg" alt="Módulo 2: Calidad de datos y listas de contacto. Flujo del módulo: Revisión rápida, Deduplicar y validar, Importar lista, Etiquetar audiencia." width="1600" height="900" loading="lazy" decoding="async" />
+            </figure>
+            <figure class="carousel-slide" data-slide>
+              <img src="assets/modulo-slides/modulo-03.jpg" alt="Módulo 3: Hojas de cálculo bilingües para el seguimiento. Flujo del módulo: Ver ejemplos reales, Construir plantilla, Adaptar a tu equipo, Envío de prueba." width="1600" height="900" loading="lazy" decoding="async" />
+            </figure>
+            <figure class="carousel-slide" data-slide>
+              <img src="assets/modulo-slides/modulo-04.jpg" alt="Módulo 4: Documentación de incidencias en las urnas. Flujo del módulo: Por qué documentar, Practicar con viñetas, Redactar en grupo, Subir a Action Network." width="1600" height="900" loading="lazy" decoding="async" />
+            </figure>
+            <figure class="carousel-slide" data-slide>
+              <img src="assets/modulo-slides/modulo-05.jpg" alt="Módulo 5: Minimización de datos frente a ICE. Flujo del módulo: Modelo de amenazas, Caso de estudio, Aplicarlo a tu lista, Ajustar privacidad." width="1600" height="900" loading="lazy" decoding="async" />
+            </figure>
+            <figure class="carousel-slide" data-slide>
+              <img src="assets/modulo-slides/modulo-06.jpg" alt="Módulo 6: Práctica integrada y lanzamiento final. Flujo del módulo: Caso integrador, Rutas de escalamiento, Envío completo, Plan personal." width="1600" height="900" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+
+          <button class="carousel-btn carousel-prev" type="button" data-prev aria-label="Módulo anterior">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="carousel-btn carousel-next" type="button" data-next aria-label="Módulo siguiente">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <div class="carousel-meta">
+          <div class="carousel-dots" data-dots role="tablist" aria-label="Seleccionar módulo"></div>
+          <p class="carousel-counter"><span data-current>1</span> / <span data-total>6</span></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -743,6 +824,125 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
+
+  // Module preview carousel (course 3)
+  (function () {
+    var root = document.querySelector('[data-carousel]');
+    if (!root) return;
+
+    var track = root.querySelector('[data-track]');
+    var slides = Array.prototype.slice.call(root.querySelectorAll('[data-slide]'));
+    var prevBtn = root.querySelector('[data-prev]');
+    var nextBtn = root.querySelector('[data-next]');
+    var dotsWrap = root.querySelector('[data-dots]');
+    var currentEl = root.querySelector('[data-current]');
+    var totalEl = root.querySelector('[data-total]');
+    var count = slides.length;
+    var index = 0;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var AUTOPLAY_MS = 6000;
+    var timer = null;
+
+    if (!count) return;
+
+    // Build dot indicators
+    var dots = [];
+    for (var i = 0; i < count; i++) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'carousel-dot';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Ir al m\u00f3dulo ' + (i + 1));
+      dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      (function (idx) {
+        dot.addEventListener('click', function () {
+          goTo(idx);
+          restartAutoplay();
+        });
+      })(i);
+      dotsWrap.appendChild(dot);
+      dots.push(dot);
+    }
+    if (totalEl) totalEl.textContent = String(count);
+
+    function render() {
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      dots.forEach(function (d, i) {
+        d.setAttribute('aria-selected', i === index ? 'true' : 'false');
+      });
+      if (currentEl) currentEl.textContent = String(index + 1);
+    }
+
+    function goTo(i) {
+      index = ((i % count) + count) % count;
+      render();
+    }
+
+    function next() { goTo(index + 1); }
+    function prev() { goTo(index - 1); }
+
+    function startAutoplay() {
+      if (reduceMotion) return;
+      stopAutoplay();
+      timer = window.setInterval(next, AUTOPLAY_MS);
+    }
+    function stopAutoplay() {
+      if (timer) { window.clearInterval(timer); timer = null; }
+    }
+    function restartAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); restartAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { next(); restartAutoplay(); });
+
+    root.addEventListener('mouseenter', stopAutoplay);
+    root.addEventListener('mouseleave', startAutoplay);
+    root.addEventListener('focusin', stopAutoplay);
+    root.addEventListener('focusout', startAutoplay);
+
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { next(); restartAutoplay(); }
+      if (e.key === 'ArrowLeft') { prev(); restartAutoplay(); }
+    });
+
+    // Touch / pointer swipe
+    var startX = null;
+    var deltaX = 0;
+    var dragging = false;
+
+    track.addEventListener('pointerdown', function (e) {
+      dragging = true;
+      startX = e.clientX;
+      deltaX = 0;
+      track.classList.add('is-dragging');
+      stopAutoplay();
+    });
+    track.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      deltaX = e.clientX - startX;
+      var pct = (deltaX / track.clientWidth) * 100;
+      track.style.transform = 'translateX(calc(-' + (index * 100) + '% + ' + pct + '%))';
+    });
+    function endDrag() {
+      if (!dragging) return;
+      dragging = false;
+      track.classList.remove('is-dragging');
+      if (Math.abs(deltaX) > 50) {
+        if (deltaX < 0) next(); else prev();
+      } else {
+        render();
+      }
+      startAutoplay();
+    }
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+    track.addEventListener('pointerleave', function () { if (dragging) endDrag(); });
+
+    render();
+    startAutoplay();
+  })();
 </script>
 </body>
 </html>
