@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Generation Data — C3-Ready Training Series</title>
-<meta name="description" content="Three practical six-hour short courses for progressive and nonprofit data teams: Spreadsheet Power, Cybersecurity, and a Spanish-language data introduction. Mockup built for GitHub Pages, ready to transfer to Squarespace." />
-<meta property="og:title" content="Generation Data — C3-Ready Training Series" />
-<meta property="og:description" content="Three practical short courses for progressive and nonprofit data teams." />
+<title>Inscripción — Datos Para Proteger El Voto de ICE | Generation Data</title>
+<meta name="description" content="Inscríbete al curso Datos Para Proteger El Voto de ICE. Cupo limitado a 25 personas." />
+<meta property="og:title" content="Inscripción — Datos Para Proteger El Voto de ICE" />
+<meta property="og:description" content="Curso corto para organizadores hispanohablantes. Cupo limitado a 25 personas." />
 <meta property="og:type" content="website" />
 
 <!-- Fonts: General Sans (display) + Satoshi (body) via Fontshare -->
 <link rel="preconnect" href="https://api.fontshare.com" />
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+
+<script src="assets/config.js"></script>
 
 <style>
 /* ===================== BASE ===================== */
@@ -389,6 +391,66 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 
 /* Language marker for course 3 (visual, keeps lang attribute for a11y) */
 [lang="es"] { }
+
+/* ===================== SIGNUP PAGE ===================== */
+.signup-hero { border-top: 1px solid var(--color-divider); }
+.signup-hero .course-band { background: var(--color-teal); }
+
+.signup-wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-12); align-items: start; }
+@media (max-width: 900px) { .signup-wrap { grid-template-columns: 1fr; } }
+
+.signup-card {
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
+
+.capacity-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+  background: var(--color-teal-highlight); border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5); margin-bottom: var(--space-6);
+  font-size: var(--text-sm); font-weight: 600; color: var(--color-text);
+}
+.capacity-banner .count { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-teal-hover); }
+
+.field { margin-bottom: var(--space-5); }
+.field label {
+  display: block; font-size: var(--text-sm); font-weight: 700; color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+.field .optional { font-weight: 400; color: var(--color-text-muted); text-transform: none; letter-spacing: normal; }
+.field input {
+  width: 100%; min-height: 3rem; padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md); border: 1px solid var(--color-border);
+  background: var(--color-surface-2); color: var(--color-text); font-size: var(--text-base);
+}
+.field input:focus { border-color: var(--color-teal); background: var(--color-surface); }
+.field input::placeholder { color: var(--color-text-faint); }
+
+.form-submit { width: 100%; margin-top: var(--space-2); }
+.form-submit[disabled] { opacity: 0.55; cursor: not-allowed; }
+
+.form-status {
+  margin-top: var(--space-4); padding: var(--space-4); border-radius: var(--radius-md);
+  font-size: var(--text-sm); font-weight: 600; display: none;
+}
+.form-status.is-visible { display: block; }
+.form-status.status-ok { background: var(--color-teal-highlight); color: var(--color-text); }
+.form-status.status-full { background: var(--color-accent-highlight); color: var(--color-text); }
+.form-status.status-error { background: var(--color-accent-highlight); color: var(--color-text); }
+
+.signup-side {
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+  padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-6);
+}
+.signup-side h4 { font-size: var(--text-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-text-muted); }
+.signup-side p { font-size: var(--text-base); color: var(--color-text); margin-top: var(--space-2); }
+.signup-side ul { display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-2); }
+.signup-side li { display: flex; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-text); }
+.signup-side li::before { content: "✓"; flex-shrink: 0; color: var(--color-teal); font-weight: 700; }
+
+.back-link { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); font-weight: 600; color: var(--color-text-muted); text-decoration: none; margin-bottom: var(--space-6); }
+.back-link:hover { color: var(--color-text); }
+
 </style>
 </head>
 <body>
@@ -396,7 +458,7 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="#top" aria-label="Generation Data home">
+    <a class="brand" href="index.html" aria-label="Generation Data home">
       <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
         <rect x="1" y="1" width="46" height="46" rx="12" fill="var(--color-primary)"/>
         <path d="M12 30L20 20L28 26L36 14" stroke="var(--color-text-inverse)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -413,10 +475,7 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
     <div class="header-right">
       <nav class="main-nav" aria-label="Primary">
         <ul role="list">
-          <li><a href="#spreadsheet">Spreadsheet</a></li>
-          <li><a href="#cybersecurity">Cybersecurity</a></li>
-          <li><a href="#espanol">Spanish</a></li>
-          <li><a class="nav-cta" href="#application-flow">Apply</a></li>
+          <li><a href="index.html#espanol">Volver al curso</a></li>
         </ul>
       </nav>
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
@@ -428,265 +487,64 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 
 <main id="main">
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="wrap hero-inner">
-      <span class="draft-badge"><span class="dot"></span>Draft mockup · pending team approval</span>
-      <p class="eyebrow">C3-Ready Training Series</p>
-      <h1>Three short courses to relaunch Generation Data</h1>
-      <p class="lede">These mockup landing pages are designed to work on GitHub Pages now and transfer cleanly into Squarespace later, with application buttons reserved for an Airtable form and payment flow that can be added when registration opens.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="#application-flow">Preview application flow</a>
-        <a class="btn btn-secondary" href="#spreadsheet">Browse course pages</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT THIS MOCKUP INCLUDES -->
-  <section id="mockup-includes">
-    <div class="wrap">
-      <div class="stat-row">
-        <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">course pages</div></div>
-        <div class="stat-card"><div class="stat-num">6 hrs</div><div class="stat-label">per course</div></div>
-        <div class="stat-card"><div class="stat-num">$60</div><div class="stat-label">suggested donation</div></div>
-      </div>
-      <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-top: var(--space-3);">Signup is free for every course &mdash; $60 is a suggested per-person donation, not a required fee.</p>
-    </div>
-  </section>
-
-  <!-- COURSE 1: SPREADSHEET -->
-  <section class="course-section course-1" id="spreadsheet">
+  <section class="signup-hero">
     <div class="wrap">
       <div class="course-band">
-        <p class="eyebrow">Course 1</p>
-        <h2>Spreadsheet Power for Progressive Teams</h2>
-        <p class="meta"><span>Nancy Stalkner</span><span class="sep">•</span><span>6 hours</span><span class="sep">•</span><span>Trending use case</span></p>
-      </div>
-
-      <div class="course-body">
-        <div class="course-main">
-          <p class="desc">This page positions the spreadsheet class as a practical training for organizers, nonprofit staff, and operations teams who need to turn messy lists into reliable reporting, outreach tracking, and leadership-ready summaries.</p>
-
-          <h3>What participants practice</h3>
-          <ul class="bullet-list" role="list">
-            <li>Cleanup workflows for contact lists, event attendance data, and outreach universes.</li>
-            <li>Hands-on formulas, filters, lookups, summaries, and quick visual reporting.</li>
-            <li>A progressive use case lab built around campaign, civic engagement, or community follow-up data.</li>
-          </ul>
-
-          <h3>Included takeaways</h3>
-          <ul class="bullet-list takeaway-list" role="list">
-            <li>Outreach universe cleanup tracker.</li>
-            <li>Weekly organizer metrics dashboard.</li>
-          </ul>
-
-          <h3>Course arc</h3>
-          <div class="flow-diagram" role="img" aria-label="Course flow: Messy program data leads to Clean sheets, which leads to Actions and reporting.">
-            <div class="flow-node">Messy program data</div>
-            <span class="flow-arrow" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
-            <div class="flow-node">Clean sheets</div>
-            <span class="flow-arrow" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
-            <div class="flow-node">Actions &amp; reporting</div>
-          </div>
-          <p class="diagram-caption">The course moves participants from messy program data, to clean, validated sheets, to decisions and reporting their teams can act on.</p>
-
-          <div class="btn-row">
-            <!-- TODO: replace href with the Airtable application form URL once registration opens -->
-            <a class="btn btn-primary" href="#application-flow" data-cta="apply-course-1">Apply for this course</a>
-            <!-- TODO: replace href with a team/partner-specific Airtable form URL -->
-            <a class="btn btn-secondary" href="#application-flow" data-cta="partner-course-1">Partner as a team</a>
-          </div>
-        </div>
-
-        <aside class="course-side">
-          <div>
-            <h4>Ideal audience</h4>
-            <p>Organizers, data associates, operations staff, canvass leads, and managers who supervise list-building or reporting.</p>
-          </div>
-          <div>
-            <h4>Accessibility choices</h4>
-            <ul class="a11y-list" role="list">
-              <li>High-contrast CTA buttons and readable body copy.</li>
-              <li>Diagram also explained in text through surrounding content.</li>
-              <li>Clear link labels instead of vague "learn more" language.</li>
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- COURSE 2: CYBERSECURITY -->
-  <section class="course-section course-2" id="cybersecurity">
-    <div class="wrap">
-      <div class="course-band">
-        <p class="eyebrow">Course 2</p>
-        <h2>Cybersecurity for Progressive and Nonprofit Professionals</h2>
-        <p class="meta"><span>Neal Hussein</span><span class="sep">•</span><span>6 hours</span><span class="sep">•</span><span>Operations and risk</span></p>
-      </div>
-
-      <div class="course-body">
-        <div class="course-main">
-          <p class="desc">This landing page frames the course as a practical security offering for nonprofit professionals and politically sensitive teams, with room to address surveillance concerns, ICE-related risk contexts, and safer staff workflows at a level that remains useful for non-technical audiences.</p>
-
-          <h3>What participants practice</h3>
-          <ul class="bullet-list" role="list">
-            <li>Account protection basics such as multifactor authentication, password managers, and recovery plans.</li>
-            <li>Field risk topics including phishing, device safety, metadata awareness, and location-sharing habits.</li>
-            <li>Operational practices for shared drives, offboarding, and incident response in small organizations.</li>
-          </ul>
-
-          <h3>Included takeaways</h3>
-          <ul class="bullet-list takeaway-list" role="list">
-            <li>Nonprofit cybersecurity self-audit checklist.</li>
-            <li>Incident response and account lockout escalation template.</li>
-          </ul>
-
-          <h3>Security model at a glance</h3>
-          <div class="pill-group">
-            <p class="pill-group-label">What we protect</p>
-            <div class="pill-row" role="img" aria-label="What we protect: People, Accounts, Devices, Files">
-              <span class="pill">People</span><span class="pill">Accounts</span><span class="pill">Devices</span><span class="pill">Files</span>
-            </div>
-          </div>
-          <div class="pill-group">
-            <p class="pill-group-label">Shared habits</p>
-            <div class="pill-row" role="img" aria-label="Shared habits: MFA, Updates, Access roles">
-              <span class="pill">MFA</span><span class="pill">Updates</span><span class="pill">Access roles</span>
-            </div>
-          </div>
-          <p class="diagram-caption">A simple security model: protect people, accounts, devices, and files with shared habits like multifactor authentication, regular updates, and role-based access.</p>
-
-          <div class="btn-row">
-            <!-- TODO: replace href with the Airtable waitlist form URL once available -->
-            <a class="btn btn-primary" href="#application-flow" data-cta="waitlist-course-2">Join the waitlist</a>
-            <!-- TODO: replace href with a staff-cohort-specific Airtable form URL -->
-            <a class="btn btn-secondary" href="#application-flow" data-cta="cohort-course-2">Book a staff cohort</a>
-          </div>
-        </div>
-
-        <aside class="course-side">
-          <div>
-            <h4>Ideal audience</h4>
-            <p>Nonprofit operations staff, organizers, digital staff, data managers, and supervisors responsible for sensitive information.</p>
-          </div>
-          <div>
-            <h4>Accessibility choices</h4>
-            <ul class="a11y-list" role="list">
-              <li>Plain-language framing for technical topics.</li>
-              <li>High-visibility headings and line lengths kept readable.</li>
-              <li>CTA choices separated by intent: individual or organization.</li>
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- COURSE 3: ESPAÑOL -->
-  <section class="course-section course-3" id="espanol" lang="es">
-    <div class="wrap">
-      <div class="course-band">
-        <p class="eyebrow" lang="en">Course 3</p>
+        <p class="eyebrow" lang="en">Course 3 · Sign up</p>
         <h2>Datos Para Proteger El Voto de ICE</h2>
-        <p class="meta"><span>Organizadores hispanohablantes</span><span class="sep">•</span><span>6 horas</span><span class="sep">•</span><span>Defender el voto</span></p>
+        <p class="meta"><span>Organizadores hispanohablantes</span><span class="sep">•</span><span>6 horas</span><span class="sep">•</span><span>18 de agosto</span></p>
       </div>
 
-      <div class="course-body">
-        <div class="course-main">
-          <p class="desc">Esta página presenta un curso corto para organizadores hispanohablantes que necesitan usar datos para proteger acceso al voto, documentar problemas, coordinar seguimiento y trabajar con confianza en contextos donde idioma, seguridad y participación cívica se cruzan.</p>
+      <a class="back-link" href="index.html#espanol">&larr; Volver a la página del curso</a>
 
-          <h3>Lo que practican los participantes</h3>
-          <ul class="bullet-list" role="list">
-            <li>Fundamentos de listas, calidad de datos y seguimiento para trabajo comunitario y electoral.</li>
-            <li>Uso práctico de hojas de cálculo y herramientas de organización bilingüe.</li>
-            <li>Escenarios de apoyo en las urnas, documentación de incidencias y rutas de escalamiento.</li>
-          </ul>
-
-          <h3>Plantillas incluidas</h3>
-          <ul class="bullet-list takeaway-list" role="list">
-            <li>Plantilla de seguimiento de incidencias en las urnas.</li>
-            <li>Plantilla bilingüe de contacto y seguimiento.</li>
-          </ul>
-
-          <div class="btn-row">
-            <a class="btn btn-primary" href="inscripcion.html" data-cta="signup-course-3">Inscribirme ahora</a>
-            <a class="btn btn-secondary" href="mailto:mdr@generationdata.org?subject=Cohorte%20-%20Datos%20Para%20Proteger%20El%20Voto%20de%20ICE" data-cta="cohort-course-3">Traer una cohorte</a>
+      <div class="signup-wrap">
+        <div class="signup-card">
+          <div class="capacity-banner" data-capacity-banner>
+            <span data-capacity-text>Cargando disponibilidad de cupo&hellip;</span>
+            <span class="count" data-capacity-count></span>
           </div>
-          <p class="seats-note" data-cta="seats-course-3">Cupo limitado a 25 personas.</p>
+
+          <form id="signup-form" novalidate>
+            <div class="field">
+              <label for="name">Nombre completo</label>
+              <input type="text" id="name" name="name" autocomplete="name" required placeholder="Ej. Ana García" />
+            </div>
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="ana@ejemplo.org" />
+            </div>
+            <div class="field">
+              <label for="org">Organización <span class="optional">(opcional)</span></label>
+              <input type="text" id="org" name="org" autocomplete="organization" placeholder="Nombre de tu organización" />
+            </div>
+            <div class="field">
+              <label for="role">Rol o puesto <span class="optional">(opcional)</span></label>
+              <input type="text" id="role" name="role" placeholder="Ej. Coordinadora de voluntariado" />
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit" data-submit-btn>Confirmar inscripción</button>
+            <div class="form-status" data-form-status role="status" aria-live="polite"></div>
+          </form>
         </div>
 
-        <aside class="course-side">
+        <aside class="signup-side">
           <div>
-            <h4>Ideal para</h4>
-            <p>Equipos de alcance, coordinadores de voluntariado, promotores cívicos, y personal bilingüe de organizaciones comunitarias.</p>
+            <h4>Detalles del curso</h4>
+            <p>Curso corto para organizadores hispanohablantes que necesitan usar datos para proteger el acceso al voto y responder ante presencia de ICE en las urnas.</p>
           </div>
           <div>
-            <h4 lang="en">Accessibility choices</h4>
-            <ul class="a11y-list" role="list">
-              <li>Bilingual-friendly structure with clear section breaks.</li>
-              <li>Buttons and navigation remain consistent across language contexts.</li>
-              <li>Copy avoids dense jargon and keeps scan patterns simple.</li>
+            <h4>Incluye</h4>
+            <ul role="list">
+              <li>6 horas de sesión en vivo</li>
+              <li>Plantilla de seguimiento de incidencias en las urnas</li>
+              <li>Plantilla bilingüe de contacto y seguimiento</li>
             </ul>
           </div>
+          <div>
+            <h4>Cupo</h4>
+            <p>Limitado a 25 personas para esta primera sesión. Una vez lleno, esta página lo indicará.</p>
+          </div>
         </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- APPLICATION AND PAYMENT FLOW -->
-  <section id="application-flow">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Signup flow mockup</p>
-        <h2>Application and payment flow mockup</h2>
-        <p>The current site is set up so an Airtable application form can replace the placeholder application links, and a later Squarespace checkout page can handle payment after acceptance or enrollment approval.</p>
-      </div>
-
-      <div class="flow-steps">
-        <div class="flow-step">
-          <div class="flow-step-num" aria-hidden="true">1</div>
-          <h3>Visitor lands and applies</h3>
-          <p>Visitor lands on a course page and selects Apply or Partner as a team.</p>
-        </div>
-        <div class="flow-step">
-          <div class="flow-step-num" aria-hidden="true">2</div>
-          <h3>Airtable form opens</h3>
-          <p>Button links to an Airtable form with basic interest, organization, language, and staffing questions.</p>
-        </div>
-        <div class="flow-step">
-          <div class="flow-step-num" aria-hidden="true">3</div>
-          <h3>Payment or invoice path</h3>
-          <p>Accepted participants receive a Squarespace payment link or invoice path later.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PUBLISHING PATH -->
-  <section id="publishing-path">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Publishing path</p>
-        <h2>From GitHub Pages to Squarespace</h2>
-      </div>
-      <div class="publish-grid">
-        <div class="publish-card">
-          <h3>GitHub Pages now</h3>
-          <p>Upload this HTML file to a repo and publish with Pages, or point a custom domain to the Pages site.</p>
-        </div>
-        <div class="publish-card">
-          <h3>Squarespace later</h3>
-          <p>Move each course block into a standalone Squarespace page, then replace CTA links with Airtable and payment URLs.</p>
-        </div>
-        <div class="publish-card">
-          <h3>Optional domain reroute</h3>
-          <p>A custom domain can first point to GitHub Pages and later redirect to Squarespace when the production site is ready.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -695,7 +553,7 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <a class="brand" href="#top" aria-label="Generation Data home">
+    <a class="brand" href="index.html" aria-label="Generation Data home">
       <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true" style="width:2rem;height:2rem;">
         <rect x="1" y="1" width="46" height="46" rx="12" fill="var(--color-primary)"/>
         <path d="M12 30L20 20L28 26L36 14" stroke="var(--color-text-inverse)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -706,8 +564,8 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
       </svg>
       <span class="brand-text"><span class="brand-name">Generation Data</span></span>
     </a>
-    <p class="footer-caption">Mockup website page set for Generation Data short courses.</p>
-    <p class="footer-sub">Built as one transferable static page so you can publish quickly, then split or migrate sections later.</p>
+    <p class="footer-caption">Inscripción — Datos Para Proteger El Voto de ICE.</p>
+    <p class="footer-sub">Los datos de este formulario se guardan en una hoja de Google administrada por Generation Data.</p>
     <div class="footer-meta">
       <span>&copy; <span data-year></span> Generation Data</span>
       <a href="https://www.generationdata.org" target="_blank" rel="noopener noreferrer">generationdata.org</a>
@@ -743,6 +601,124 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
+
+  // ===================== SIGNUP FORM LOGIC =====================
+  (function () {
+    var CAPACITY = 25;
+    var config = window.SIGNUP_CONFIG || {};
+    var endpoint = config.appsScriptUrl || '';
+
+    var banner = document.querySelector('[data-capacity-banner]');
+    var bannerText = document.querySelector('[data-capacity-text]');
+    var bannerCount = document.querySelector('[data-capacity-count]');
+    var form = document.getElementById('signup-form');
+    var submitBtn = document.querySelector('[data-submit-btn]');
+    var statusEl = document.querySelector('[data-form-status]');
+
+    function setStatus(kind, message) {
+      statusEl.className = 'form-status is-visible status-' + kind;
+      statusEl.textContent = message;
+    }
+
+    function lockForm(message) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Cupo lleno';
+      Array.prototype.forEach.call(form.querySelectorAll('input'), function (input) {
+        input.disabled = true;
+      });
+      if (message) setStatus('full', message);
+    }
+
+    function updateBanner(remaining, full) {
+      if (full) {
+        bannerText.textContent = 'Esta sesión ha alcanzado el cupo máximo.';
+        bannerCount.textContent = '0 / ' + CAPACITY;
+        banner.style.background = 'var(--color-accent-highlight)';
+      } else if (typeof remaining === 'number') {
+        bannerText.textContent = 'Cupos disponibles para esta sesión:';
+        bannerCount.textContent = remaining + ' / ' + CAPACITY;
+      } else {
+        bannerText.textContent = 'Cupo limitado a ' + CAPACITY + ' personas.';
+        bannerCount.textContent = '';
+      }
+    }
+
+    if (!endpoint) {
+      updateBanner(null, false);
+      setStatus('error', 'El formulario todavía no está conectado a la hoja de inscripción. Vuelve más tarde.');
+      submitBtn.disabled = true;
+      return;
+    }
+
+    // Load current capacity on page open.
+    fetch(endpoint, { method: 'GET' })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data && data.full) {
+          lockForm('Esta sesión ya alcanzó el cupo de ' + CAPACITY + ' personas. Escríbenos si quieres unirte a la lista de espera.');
+          updateBanner(0, true);
+        } else if (data) {
+          updateBanner(data.remaining, false);
+        }
+      })
+      .catch(function () {
+        updateBanner(null, false);
+      });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      setStatus('ok', '');
+      statusEl.className = 'form-status';
+
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var org = document.getElementById('org').value.trim();
+      var role = document.getElementById('role').value.trim();
+
+      if (!name || !email) {
+        setStatus('error', 'Por favor completa nombre y correo electrónico.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando…';
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ name: name, email: email, org: org, role: role })
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data && data.ok) {
+            form.reset();
+            lockFormAfterSuccess();
+            setStatus('ok', '¡Listo! Tu inscripción quedó registrada. Te contactaremos con los detalles de la sesión del 18 de agosto.');
+            updateBanner(data.remaining, data.full);
+            if (data.full) {
+              setTimeout(function () { lockForm('Esta sesión ya alcanzó el cupo de ' + CAPACITY + ' personas.'); }, 50);
+            }
+          } else if (data && data.reason === 'full') {
+            lockForm('Esta sesión ya alcanzó el cupo de ' + CAPACITY + ' personas. Escríbenos si quieres unirte a la lista de espera.');
+            updateBanner(0, true);
+          } else {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Confirmar inscripción';
+            setStatus('error', (data && data.message) || 'No pudimos registrar tu inscripción. Intenta de nuevo.');
+          }
+        })
+        .catch(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Confirmar inscripción';
+          setStatus('error', 'Hubo un problema de conexión. Intenta de nuevo en un momento.');
+        });
+    });
+
+    function lockFormAfterSuccess() {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Inscripción confirmada';
+    }
+  })();
 </script>
 </body>
 </html>
