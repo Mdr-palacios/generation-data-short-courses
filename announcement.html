@@ -12,6 +12,7 @@
 <!-- Fonts: General Sans (display) + Satoshi (body) via Fontshare -->
 <link rel="preconnect" href="https://api.fontshare.com" />
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<script src="assets/config-fall-courses.js"></script>
 
 <style>
 /* ===================== BASE ===================== */
@@ -299,6 +300,43 @@ h1.title { font-size: var(--text-hero); font-weight: 700; margin-top: var(--spac
 .gcal-links a { font-size: var(--text-xs); color: var(--color-text-muted); text-decoration: underline; }
 .gcal-links a:hover { color: var(--color-teal-hover); }
 
+/* ===================== COLLAPSIBLE RSVP SECTION ===================== */
+.rsvp-details { margin-top: var(--space-6); border-top: 1px solid var(--color-divider); padding-top: var(--space-5); }
+.rsvp-details summary {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+  cursor: pointer; list-style: none; font-weight: 700; font-size: var(--text-sm); color: var(--color-text);
+  padding: var(--space-2) 0;
+}
+.rsvp-details summary::-webkit-details-marker { display: none; }
+.rsvp-details summary::after {
+  content: '+'; font-size: var(--text-lg); font-weight: 400; color: var(--color-text-muted); line-height: 1;
+  transition: transform var(--transition-interactive);
+}
+.rsvp-details[open] summary::after { transform: rotate(45deg); }
+.rsvp-details summary:hover { color: var(--color-primary); }
+.rsvp-details summary:hover::after { color: var(--color-primary); }
+.rsvp-panel { padding-top: var(--space-4); }
+
+.signup-form { margin-top: var(--space-6); background: var(--color-surface-offset); border-radius: var(--radius-lg); padding: var(--space-5); }
+.signup-form-label { font-weight: 700; font-size: var(--text-sm); color: var(--color-text); margin-bottom: var(--space-4); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+.form-grid label { display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-xs); font-weight: 600; color: var(--color-text-muted); }
+.form-grid input {
+  min-height: 2.5rem; padding: var(--space-2) var(--space-3); border-radius: var(--radius-md);
+  border: 1px solid var(--color-border); background: var(--color-surface); font-size: var(--text-sm); color: var(--color-text);
+}
+.form-grid input:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 1px; }
+.signup-form .btn-primary { margin-top: var(--space-4); }
+.form-status { margin-top: var(--space-3); font-size: var(--text-sm); }
+.form-status.is-success { color: var(--color-teal-hover); }
+.form-status.is-error { color: var(--color-accent-hover); }
+.form-fallback { margin-top: var(--space-3); font-size: var(--text-xs); color: var(--color-text-faint); }
+.form-fallback a { color: var(--color-text-muted); text-decoration: underline; }
+
+@media (max-width: 560px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
 /* ===================== RSVP BAND ===================== */
 .rsvp-band { background: var(--color-primary); color: var(--color-text-inverse); border-radius: var(--radius-xl); padding: clamp(var(--space-8), 5vw, var(--space-12)); margin-top: var(--space-16); }
 .rsvp-band h2 { color: var(--color-text-inverse); font-size: var(--text-xl); }
@@ -408,10 +446,28 @@ h1.title { font-size: var(--text-hero); font-weight: 700; margin-top: var(--spac
           </div>
         </div>
 
-        <div class="calendar-row">
-          <a class="btn btn-secondary" href="#" data-ics-download="cyber" download="cybersecurity-basics.ics">Add to calendar (.ics)</a>
-        </div>
-        <div class="gcal-links" data-gcal-links="cyber"></div>
+        <details class="rsvp-details">
+          <summary>RSVP &amp; add to calendar</summary>
+          <div class="rsvp-panel">
+            <div class="calendar-row">
+              <a class="btn btn-secondary" href="#" data-ics-download="cyber" download="cybersecurity-basics.ics">Add to calendar (.ics)</a>
+            </div>
+            <div class="gcal-links" data-gcal-links="cyber"></div>
+
+            <form class="signup-form" data-signup-form data-course="Cybersecurity Basics (Sept 10)">
+              <p class="signup-form-label">Reserve your seat</p>
+              <div class="form-grid">
+                <label>Full name<input type="text" name="name" required autocomplete="name" /></label>
+                <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+                <label>Organization<input type="text" name="org" autocomplete="organization" /></label>
+                <label>Role / title<input type="text" name="role" /></label>
+              </div>
+              <button class="btn btn-primary" type="submit">Reserve my seat</button>
+              <p class="form-status" role="status"></p>
+            </form>
+            <p class="form-fallback">Prefer email? <a href="mailto:mdr@generationdata.org?subject=Sign%20me%20up%20-%20Cybersecurity%20Basics&body=Name%3A%0AOrganization%3A">RSVP directly to MdR</a></p>
+          </div>
+        </details>
       </div>
 
       <!-- COURSE 2: SPREADSHEET POWER -->
@@ -454,10 +510,28 @@ h1.title { font-size: var(--text-hero); font-weight: 700; margin-top: var(--spac
           </div>
         </div>
 
-        <div class="calendar-row">
-          <a class="btn btn-secondary" href="#" data-ics-download="sheets" download="spreadsheet-power.ics">Add both sessions to calendar (.ics)</a>
-        </div>
-        <div class="gcal-links" data-gcal-links="sheets"></div>
+        <details class="rsvp-details">
+          <summary>RSVP &amp; add to calendar</summary>
+          <div class="rsvp-panel">
+            <div class="calendar-row">
+              <a class="btn btn-secondary" href="#" data-ics-download="sheets" download="spreadsheet-power.ics">Add both sessions to calendar (.ics)</a>
+            </div>
+            <div class="gcal-links" data-gcal-links="sheets"></div>
+
+            <form class="signup-form" data-signup-form data-course="Spreadsheet Power (Sept 22 &amp; 24)">
+              <p class="signup-form-label">Reserve your seat</p>
+              <div class="form-grid">
+                <label>Full name<input type="text" name="name" required autocomplete="name" /></label>
+                <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+                <label>Organization<input type="text" name="org" autocomplete="organization" /></label>
+                <label>Role / title<input type="text" name="role" /></label>
+              </div>
+              <button class="btn btn-primary" type="submit">Reserve my seat</button>
+              <p class="form-status" role="status"></p>
+            </form>
+            <p class="form-fallback">Prefer email? <a href="mailto:mdr@generationdata.org?subject=Sign%20me%20up%20-%20Spreadsheet%20Power&body=Name%3A%0AOrganization%3A">RSVP directly to MdR</a></p>
+          </div>
+        </details>
       </div>
 
       <p class="signoff">Both courses are free to attend, thanks to the volunteer time Neal and Nancy are generously donating.
@@ -605,6 +679,61 @@ h1.title { font-size: var(--text-hero); font-weight: 700; margin-top: var(--spac
       a.rel = 'noopener noreferrer';
       a.textContent = '+ Google Calendar: ' + ev.dateLabel;
       container.appendChild(a);
+    });
+  });
+
+  // ===================== SIGN-UP FORMS =====================
+  Array.prototype.forEach.call(document.querySelectorAll('[data-signup-form]'), function (form) {
+    var course = form.getAttribute('data-course');
+    var statusEl = form.querySelector('.form-status');
+    var submitBtn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var config = window.FALL_COURSES_SIGNUP_CONFIG || {};
+      var name = form.elements.name.value.trim();
+      var email = form.elements.email.value.trim();
+      var org = form.elements.org.value.trim();
+      var role = form.elements.role.value.trim();
+
+      if (!name || !email) {
+        statusEl.textContent = 'Please fill in your name and email.';
+        statusEl.className = 'form-status is-error';
+        return;
+      }
+
+      if (!config.appsScriptUrl) {
+        statusEl.textContent = 'Our sign-up form is finishing setup — please use the "RSVP directly" email link below instead, and we\'ll get you on the list.';
+        statusEl.className = 'form-status is-error';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      statusEl.textContent = 'Sending...';
+      statusEl.className = 'form-status';
+
+      fetch(config.appsScriptUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ name: name, email: email, org: org, role: role, courses: [course] })
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          submitBtn.disabled = false;
+          if (data && data.ok) {
+            statusEl.textContent = 'You\'re on the list! We\'ll email you Zoom details closer to the date.';
+            statusEl.className = 'form-status is-success';
+            form.reset();
+          } else {
+            statusEl.textContent = (data && data.message) || 'Something went wrong — please try the email RSVP link below.';
+            statusEl.className = 'form-status is-error';
+          }
+        })
+        .catch(function () {
+          submitBtn.disabled = false;
+          statusEl.textContent = 'Something went wrong — please try the email RSVP link below.';
+          statusEl.className = 'form-status is-error';
+        });
     });
   });
 </script>
